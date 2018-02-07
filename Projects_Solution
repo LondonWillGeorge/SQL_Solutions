@@ -1,0 +1,4 @@
+Select start_date s, min(end_date) from
+(Select start_Date from Projects where start_date not in (select end_date from Projects)) a, 
+(Select end_Date from Projects where end_date not in (select start_date from Projects)) b 
+where a.start_date < b.end_date group by s order by (min(end_date) - s), s;
