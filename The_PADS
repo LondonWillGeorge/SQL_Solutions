@@ -1,0 +1,18 @@
+
+/*
+
+https://www.hackerrank.com/challenges/the-pads/problem
+
+In this medium rank 30 point problem, the solution needs to print output in a very particular format, using brackets, initial of the 'occupation' field
+value and so on.
+So need to use CONCAT command to concatenate ")" brackets and so on in the right place.
+
+In second part of results, we need total number of people in each occupation to be printed.
+Therefore use COUNT command for this part.
+
+*/
+
+SELECT CONCAT(Name, "(", LEFT(Occupation, 1),")") FROM OCCUPATIONS ORDER BY Name ASC;
+
+SELECT CONCAT("There are a total of ", COUNT(Occupation), " ", LCASE(Occupation), "s.")
+    FROM OCCUPATIONS GROUP BY Occupation ORDER BY COUNT(Occupation), Occupation;
