@@ -1,0 +1,13 @@
+/*
+solution to https://www.hackerrank.com/challenges/weather-observation-station-19/problem
+In the problem, to find distance between 2 points (a,b) and (c,d), can use Pythagoras theorem.
+Key fact stated here is also a is less than c, and b is less than d, in distance from (a,b) to (c,d)
+If a was bigger than c then would need to handle absolute values and negative values, little extra step would be needed.
+
+POWER is used to give Pythag formula for (c - a) squared + (d - b) squared sum of squares, then square root of this to get the hypotenuse,
+which is the distance between the points.
+
+Lastly, problem requires 4 decimal digits, so use TRUNCATE to get this.
+
+*/
+Select TRUNCATE(POWER((POWER((max(Lat_n) - min(Lat_n)), 2) + POWER((max(Long_w) - min(Long_w)), 2)), 0.5), 4) from station;
