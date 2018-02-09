@@ -1,3 +1,19 @@
+/*
+https://www.hackerrank.com/challenges/projects/problem
+The key to this direction of solving the problem is that in this case, where the only data are start and end dates for projects,
+the overall start dates for each separate project will not appear in any of the overall end dates for each separate project, and vice-versa.
+
+The solution stems from this observation.
+Following will output all the start dates which don't appear anywhere as end dates:
+Select start_Date from Projects where start_date not in (select end_date from Projects)
+
+Rest of solution built up from this.
+
+SQL also has DATEDIFF function which is used in discussion solution for this, which might be safer for processing date values, but
+this simple subtraction works for the test data anyway: 'order by (min(end_date) - s)'
+
+*/
+
 Select start_date s, min(end_date) from
 (Select start_Date from Projects where start_date not in (select end_date from Projects)) a, 
 (Select end_Date from Projects where end_date not in (select start_date from Projects)) b 
