@@ -5,7 +5,7 @@ The second select statement is needed to constrain the coins needed to minimum a
 identical 'power' and 'age' properties.
 There is no way I can see to constrain the MIN coins_needed inside first select statement as can't GROUP BY 'power' and 'age' in combination,
 so second select statement needs to be nested inside the main one like this.
-But there is probably even simpler way to do it, at 8/2/18 I am not up to that SQL level yet.
+But there is probably even simpler way to do it, at a very advanced SQL level.
 */
 
 
